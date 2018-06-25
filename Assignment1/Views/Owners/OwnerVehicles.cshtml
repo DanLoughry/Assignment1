@@ -1,0 +1,57 @@
+﻿@model Assignment1.ViewModel.OwnerVehicles
+
+@{
+    ViewBag.Title = "OwnerVehicles";
+}
+
+<h2>OwnerVehicles</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Name
+        </th>
+        <th>
+            VIN
+        </th>
+        <th>
+            Make
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+            Year
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Vehicles) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.owner.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Make)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

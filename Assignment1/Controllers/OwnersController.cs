@@ -17,12 +17,13 @@ namespace Assignment1.Controllers
 
 		// GET: Owners
 
-		public ActionResult AllOwnerVehicles(int? id)
+		public ActionResult OwnerVehicles(int? id)
 		{
-			OwnerVehicles  = new PurchaseRequestForUser();
-			purchaseRequest.User = db.Users.Find(id);
-			purchaseRequest.PurchaseRequests = db.PurchaseRequests.Where(o => o.UserId == id).ToList();
-			return View(purchaseRequest);
+			OwnerVehicles allownervehicles = new OwnerVehicles();
+			allownervehicles.Owner = db.Owners.Find(id);
+			allownervehicles.Vehicles = db.Vehicles.Where(o => o.OwnerId == id).ToList();
+			return View(allownervehicles);
+		}
 
 			public ActionResult Index()
         {
